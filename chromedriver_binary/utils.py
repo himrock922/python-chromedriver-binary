@@ -39,7 +39,7 @@ def get_chromedriver_url(version):
     :return: Download URL for chromedriver
     """
     base_url = 'https://chromedriver.storage.googleapis.com/'
-    if sys.platform.startswith('linux') and sys.maxsize > 2 ** 32:
+    if (sys.platform.startswith('linux') or sys.platform.startswith('freebsd')) and sys.maxsize > 2 ** 32:
         platform = 'linux'
         architecture = '64'
     elif sys.platform == 'darwin':
